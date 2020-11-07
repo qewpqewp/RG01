@@ -3,10 +3,8 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.example.mapper.RecordMapper;
 import com.example.mapper.UserMapper;
-import com.example.model.Record;
-import com.example.model.RecordExample;
-import com.example.model.User;
-import com.example.model.UserExample;
+import com.example.mapper.VoteresultMapper;
+import com.example.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -22,10 +20,13 @@ import java.util.List;
  */
 @Controller
 public class HtmlController {
-    @Autowired
+    @Autowired(required=true)
     UserMapper userMapper;
-    @Autowired
+    @Autowired(required=true)
     RecordMapper recordMapper;
+    @Autowired(required=true)
+    VoteresultMapper VotesultExMapper;
+
     @ResponseBody
     //Restful风格接口
     @RequestMapping(value = "/Login/{id}", method = RequestMethod.GET)
@@ -78,10 +79,10 @@ public class HtmlController {
     //Restful风格接口
     @RequestMapping(value = "/Getcount", method = RequestMethod.POST)
     public String Getcount() {
-        RecordExample recordExample=new RecordExample();
-        RecordExample.Criteria criteria1 = recordExample.createCriteria();
+        VoteresultExample voteresultExample=new VoteresultExample();
+        VoteresultExample.Criteria criteria1 = voteresultExample.createCriteria();
 
-        List<long> R=recordMapper.countByExample(recordExample);
+        List<Voteresult> R=VotesultExMapper.selectByExample(voteresultExample);
 
         return JSONObject.toJSONString(R);
 
