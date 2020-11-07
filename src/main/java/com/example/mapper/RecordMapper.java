@@ -3,10 +3,8 @@ package com.example.mapper;
 import com.example.model.Record;
 import com.example.model.RecordExample;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-@Mapper
+
 public interface RecordMapper {
     long countByExample(RecordExample example);
 
