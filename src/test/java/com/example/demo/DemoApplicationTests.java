@@ -19,8 +19,7 @@ public class DemoApplicationTests {
 
     @Test
     public void getLearn(){
-        String xx=htmlController.getID(7);
-        Assert.assertEquals("Id:7",xx);
+
 
     }
 }
