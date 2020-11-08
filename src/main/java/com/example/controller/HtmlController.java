@@ -18,7 +18,8 @@ import java.util.List;
  * @description:
  * @date 2019/12/28 21:32
  */
-@Controller
+@RestController
+@CrossOrigin
 public class HtmlController {
     @Autowired(required=true)
     UserMapper userMapper;
@@ -27,9 +28,7 @@ public class HtmlController {
     @Autowired(required=true)
     VoteresultMapper VotesultExMapper;
 
-    @ResponseBody
-    //Restful风格接口
-    @RequestMapping(value = "/Login/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/Login/{id}", method = RequestMethod.POST)
     public String Login(@PathVariable("id") String  id) {
 //        User user=new User();
 //        user.setId("aa");
@@ -48,8 +47,7 @@ public class HtmlController {
 
     }
 
-    @ResponseBody
-    //Restful风格接口
+
     @RequestMapping(value = "/Vote", method = RequestMethod.POST)
     public String Vote(@RequestBody JSONObject jsonParam) {
         JSONArray groups=jsonParam.getJSONArray("GID");
@@ -71,8 +69,7 @@ public class HtmlController {
         return "Success";
 
     }
-    @ResponseBody
-    //Restful风格接口
+
     @RequestMapping(value = "/Getrecordlist", method = RequestMethod.POST)
     public String Getrecordlist() {
         RecordExample recordExample=new RecordExample();
@@ -82,7 +79,7 @@ public class HtmlController {
         return JSONObject.toJSONString(R);
 
     }
-    @ResponseBody
+
     //Restful风格接口
     @RequestMapping(value = "/Getcount", method = RequestMethod.POST)
     public String Getcount() {
