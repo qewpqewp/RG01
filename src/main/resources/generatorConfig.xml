@@ -9,9 +9,9 @@
         </commentGenerator>
         <!-- Mysql数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://150.158.153.134:3306/tpdb?serverTimezone=GMT&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;allowPublicKeyRetrieval=true&amp;useSSL=false"
-                        userId="jieblue"
-                        password="2775856803">
+                        connectionURL="jdbc:mysql://***.***.***.***:3306/tpdb?serverTimezone=GMT&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;allowPublicKeyRetrieval=true&amp;useSSL=false"
+                        userId="****"
+                        password="****">
         </jdbcConnection>
         <!-- Oracle数据库
             <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
